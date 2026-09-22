@@ -6,7 +6,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
 <title>Flores amarillas para ti 💛</title>
@@ -27,16 +27,14 @@ body {
     padding: 0;
 
     width: 100%;
-    max-width: 100%;
-
     min-height: 100%;
 
     overflow-x: hidden;
 }
 
 body {
-
     min-height: 100vh;
+    min-height: 100dvh;
 
     position: relative;
 
@@ -51,9 +49,9 @@ body {
 
     background:
         radial-gradient(
-            circle at 70% 75%,
-            #183b2a 0%,
-            transparent 32%
+            circle at 50% 75%,
+            #17422f 0%,
+            transparent 38%
         ),
         linear-gradient(
             145deg,
@@ -69,18 +67,16 @@ body {
 ========================================= */
 
 .scene {
-
     position: relative;
 
     width: 100%;
-    max-width: 100%;
 
     min-height: 100vh;
+    min-height: 100dvh;
 
     overflow: hidden;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -93,7 +89,6 @@ body {
 ========================================= */
 
 .intro {
-
     position: relative;
 
     z-index: 50;
@@ -105,9 +100,7 @@ body {
         transform .8s ease;
 }
 
-
 .intro.hide {
-
     opacity: 0;
 
     transform: scale(.9);
@@ -115,9 +108,7 @@ body {
     pointer-events: none;
 }
 
-
 .intro h1 {
-
     margin: 0 0 12px;
 
     color: #ffe36a;
@@ -130,9 +121,7 @@ body {
         );
 }
 
-
 .intro p {
-
     margin: 0 0 25px;
 
     color: #fff4c2;
@@ -140,9 +129,7 @@ body {
     font-size: 18px;
 }
 
-
 .intro button {
-
     border: none;
 
     border-radius: 999px;
@@ -168,9 +155,7 @@ body {
         box-shadow .2s ease;
 }
 
-
 .intro button:hover {
-
     transform: scale(1.05);
 
     box-shadow:
@@ -178,9 +163,7 @@ body {
         rgba(255, 216, 75, .6);
 }
 
-
 .intro button:active {
-
     transform: scale(.96);
 }
 
@@ -190,7 +173,6 @@ body {
 ========================================= */
 
 .letter {
-
     position: absolute;
 
     left: 6%;
@@ -225,15 +207,11 @@ body {
         opacity 1s ease;
 }
 
-
 .letter.show {
-
     opacity: 1;
 }
 
-
 #typed {
-
     white-space: pre-line;
 }
 
@@ -243,7 +221,6 @@ body {
 ========================================= */
 
 .cursor {
-
     display: inline-block;
 
     width: 2px;
@@ -259,7 +236,6 @@ body {
         blink .7s infinite;
 }
 
-
 @keyframes blink {
 
     50% {
@@ -274,8 +250,7 @@ body {
 ========================================= */
 
 .signature {
-
-    margin-top: 22px;
+    margin-top: 20px;
 
     opacity: 0;
 
@@ -284,7 +259,6 @@ body {
     font-size: 1.05em;
 
     font-weight: bold;
-
     font-style: italic;
 
     transform:
@@ -299,9 +273,7 @@ body {
         rgba(0, 0, 0, .8);
 }
 
-
 .signature.show {
-
     opacity: 1;
 
     transform:
@@ -314,7 +286,6 @@ body {
 ========================================= */
 
 .bouquet {
-
     position: absolute;
 
     right: 5%;
@@ -334,19 +305,16 @@ body {
         opacity .5s ease;
 }
 
-
 .bouquet.show {
-
     opacity: 1;
 }
 
 
 /* =========================================
-   FLOR
+   FLORES
 ========================================= */
 
 .flower {
-
     position: absolute;
 
     left: 50%;
@@ -381,16 +349,13 @@ body {
         );
 }
 
-
 .flower.grow {
-
     opacity: 1;
 
     transform:
         translate(
             calc(
-                -50%
-                + var(--x)
+                -50% + var(--x)
             ),
             var(--y)
         )
@@ -404,15 +369,14 @@ body {
 
 
 /* =========================================
-   TALLO
+   TALLOS
 ========================================= */
 
 .stem {
-
     position: absolute;
 
     width: 6px;
-    height: 250px;
+    height: 230px;
 
     left: 52px;
     top: 53px;
@@ -421,6 +385,8 @@ body {
 
     border-radius: 6px;
 
+    transform-origin: top;
+
     background:
         linear-gradient(
             90deg,
@@ -428,6 +394,10 @@ body {
             #4c9a4b,
             #153b25
         );
+
+    box-shadow:
+        0 0 3px
+        rgba(0, 0, 0, .3);
 }
 
 
@@ -436,7 +406,6 @@ body {
 ========================================= */
 
 .petal {
-
     position: absolute;
 
     left: 41px;
@@ -458,8 +427,8 @@ body {
         );
 
     box-shadow:
-        0 0 8px
-        rgba(255, 215, 57, .35);
+        0 0 9px
+        rgba(255, 215, 57, .42);
 }
 
 
@@ -468,7 +437,6 @@ body {
 ========================================= */
 
 .center {
-
     position: absolute;
 
     left: 35px;
@@ -484,7 +452,7 @@ body {
     background:
         radial-gradient(
             circle at 35% 30%,
-            #9d7128,
+            #a97927,
             #4d2a0b 72%
         );
 }
@@ -495,7 +463,6 @@ body {
 ========================================= */
 
 .wrap {
-
     position: absolute;
 
     left: 50%;
@@ -504,7 +471,7 @@ body {
     width: 270px;
     height: 165px;
 
-    z-index: 5;
+    z-index: 15;
 
     opacity: 0;
 
@@ -513,27 +480,29 @@ body {
 
     clip-path:
         polygon(
-            8% 0,
-            92% 0,
-            68% 100%,
-            32% 100%
+            5% 0,
+            95% 0,
+            69% 100%,
+            31% 100%
         );
 
     background:
         linear-gradient(
             135deg,
-            #f0d9a7,
-            #c89f61
+            rgba(246, 222, 171, .96),
+            rgba(202, 161, 98, .96)
         );
+
+    box-shadow:
+        0 8px 18px
+        rgba(0, 0, 0, .15);
 
     transition:
         opacity 1s ease;
 }
 
-
 .wrap.show {
-
-    opacity: .92;
+    opacity: .94;
 }
 
 
@@ -542,7 +511,6 @@ body {
 ========================================= */
 
 .ribbon {
-
     position: absolute;
 
     left: 50%;
@@ -551,7 +519,7 @@ body {
     width: 110px;
     height: 24px;
 
-    z-index: 7;
+    z-index: 18;
 
     opacity: 0;
 
@@ -560,15 +528,19 @@ body {
     transform:
         translateX(-50%);
 
-    background: #d7a926;
+    background:
+        linear-gradient(
+            90deg,
+            #c99513,
+            #f1c42d,
+            #c99513
+        );
 
     transition:
         opacity 1s ease;
 }
 
-
 .ribbon.show {
-
     opacity: 1;
 }
 
@@ -578,7 +550,6 @@ body {
 ========================================= */
 
 .spark {
-
     position: absolute;
 
     width: 5px;
@@ -590,7 +561,7 @@ body {
 
     background: #fff3a4;
 
-    opacity: .5;
+    opacity: .45;
 
     pointer-events: none;
 
@@ -598,23 +569,18 @@ body {
         float 5s linear infinite;
 }
 
-
 @keyframes float {
 
     from {
-
         transform:
             translateY(0);
-
     }
 
     to {
-
         transform:
             translateY(-90px);
 
         opacity: 0;
-
     }
 
 }
@@ -633,7 +599,6 @@ and
 ) {
 
     .letter {
-
         left: 5%;
 
         width: 42%;
@@ -641,13 +606,11 @@ and
         font-size: 1.05rem;
     }
 
-
     .bouquet {
-
-        right: -40px;
+        right: -25px;
 
         transform:
-            scale(.82);
+            scale(.8);
 
         transform-origin:
             bottom right;
@@ -666,7 +629,6 @@ and
 
     html,
     body {
-
         width: 100%;
 
         max-width: 100%;
@@ -674,20 +636,15 @@ and
         overflow-x: hidden;
     }
 
-
     body {
-
         overflow: hidden;
     }
 
-
     .scene {
-
         width: 100%;
 
-        max-width: 100%;
-
         min-height: 100vh;
+        min-height: 100dvh;
 
         padding: 0;
 
@@ -700,17 +657,14 @@ and
     ===================================== */
 
     .intro {
-
         width: 90%;
 
-        margin: 0 auto;
-
         padding: 20px;
+
+        margin: 0 auto;
     }
 
-
     .intro h1 {
-
         font-size:
             clamp(
                 2rem,
@@ -719,9 +673,7 @@ and
             );
     }
 
-
     .intro p {
-
         font-size: 16px;
     }
 
@@ -731,15 +683,20 @@ and
     ===================================== */
 
     .letter {
-
         left: 0;
         right: 0;
 
-        top: 25px;
+        /*
+         * safe-area ayuda en móviles
+         * con barras/notch.
+         */
+        top:
+            max(
+                28px,
+                env(safe-area-inset-top)
+            );
 
         width: 100%;
-
-        max-width: 100%;
 
         padding:
             0 20px;
@@ -757,14 +714,9 @@ and
 
         overflow-wrap:
             break-word;
-
-        word-break:
-            normal;
     }
 
-
     .signature {
-
         margin-top: 12px;
 
         font-size: .98rem;
@@ -776,68 +728,67 @@ and
     ===================================== */
 
     .bouquet {
+        left: 50%;
+        right: auto;
 
-        left: 0;
-        right: 0;
+        bottom: 70px;
 
-        /*
-         * Subimos el ramo.
-         */
-
-        bottom: 45px;
-
-        width: 100%;
-
+        width: 390px;
         max-width: 100%;
 
-        height: 480px;
+        height: 450px;
 
         margin: 0;
 
         /*
-         * Lo reducimos ligeramente.
+         * Centramos el ramo.
+         * Ya no hay desplazamiento lateral.
          */
-
         transform:
-            scale(.88);
+            translateX(-50%);
 
         transform-origin:
             bottom center;
 
-        overflow:
-            visible;
+        overflow: visible;
     }
 
 
     /* =====================================
-       FLORES
+       FLORES MÓVIL
     ===================================== */
 
     .flower {
-
         left: 50%;
 
-        /*
-         * La base del ramo queda
-         * bastante más arriba.
-         */
+        bottom: 105px;
+    }
 
-        bottom: 110px;
+
+    /*
+     * Tallos más cortos.
+     * Evita que sobresalgan demasiado
+     * debajo del papel.
+     */
+
+    .stem {
+        height: 205px;
+
+        width: 5px;
     }
 
 
     /* =====================================
-       PAPEL
+       PAPEL MÓVIL
     ===================================== */
 
     .wrap {
-
         left: 50%;
 
-        bottom: 55px;
+        bottom: 35px;
 
         width: 185px;
-        height: 115px;
+        height: 125px;
 
         transform:
             translateX(-50%);
@@ -845,16 +796,15 @@ and
 
 
     /* =====================================
-       CINTA
+       CINTA MÓVIL
     ===================================== */
 
     .ribbon {
-
         left: 50%;
 
-        bottom: 100px;
+        bottom: 84px;
 
-        width: 82px;
+        width: 84px;
         height: 18px;
 
         transform:
@@ -873,67 +823,48 @@ and
 ) {
 
     .letter {
-
-        top: 18px;
+        top: 22px;
 
         padding:
             0 17px;
 
-        font-size:
-            .87rem;
+        font-size: .87rem;
 
-        line-height:
-            1.34;
+        line-height: 1.34;
     }
 
-
     .signature {
-
         margin-top: 9px;
 
         font-size: .92rem;
     }
 
-
     .bouquet {
+        width: 360px;
 
-        bottom: 35px;
-
-        height: 450px;
-
-        transform:
-            scale(.80);
-
-        transform-origin:
-            bottom center;
-    }
-
-
-    .flower {
-
-        bottom: 105px;
-    }
-
-
-    .wrap {
+        height: 425px;
 
         bottom: 55px;
-
-        width: 175px;
-
-        height: 110px;
     }
 
+    .flower {
+        bottom: 100px;
+    }
+
+    .wrap {
+        bottom: 32px;
+
+        width: 175px;
+        height: 115px;
+    }
 
     .ribbon {
-
-        bottom: 98px;
+        bottom: 77px;
     }
 
 }
 
 </style>
-
 </head>
 
 
@@ -948,7 +879,6 @@ and
     id="backgroundMusic"
     loop
 >
-
     <source
         src="audio.mp3"
         type="audio/mpeg"
@@ -958,7 +888,6 @@ and
         src="audio.mp4"
         type="audio/mp4"
     >
-
 </audio>
 
 
@@ -972,7 +901,9 @@ and
 >
 
 
-    <!-- INTRO -->
+    <!-- =====================================
+         INICIO
+    ===================================== -->
 
     <section
         class="intro"
@@ -991,9 +922,7 @@ and
             id="open"
             type="button"
         >
-
             Toca aquí 🌻
-
         </button>
 
     </section>
@@ -1023,9 +952,7 @@ and
             class="signature"
             id="signature"
         >
-
             Con amor, Bryan ❤️
-
         </div>
 
     </div>
@@ -1045,7 +972,6 @@ and
             class="wrap"
             id="wrap"
         ></div>
-
 
         <div
             class="ribbon"
@@ -1118,37 +1044,26 @@ const cursor =
 
 
 /* =========================================
-   POSICIONES PC
+   RAMO PARA PC
 ========================================= */
 
 const desktopPositions = [
 
     [-150, -5, -27, .72],
-
     [-105, -95, -19, .82],
-
     [-45, -145, -9, .95],
-
     [20, -165, 3, 1.05],
-
     [85, -125, 13, .92],
-
     [145, -45, 25, .78],
 
     [-120, -175, -20, .75],
-
     [-65, -225, -11, .85],
-
     [5, -245, 1, 1],
-
     [75, -220, 12, .86],
-
     [125, -155, 21, .76],
 
     [-65, -310, -8, .72],
-
     [5, -330, 1, .8],
-
     [70, -300, 10, .72]
 
 ];
@@ -1156,47 +1071,61 @@ const desktopPositions = [
 
 
 /* =========================================
-   POSICIONES CELULAR
+   RAMO SIMÉTRICO PARA CELULAR
+
+   Cada fila tiene izquierda/derecha
+   reflejadas para que el ramo no quede
+   disparejo.
 ========================================= */
 
 const mobilePositions = [
 
-    [-105, -5, -22, .55],
+    /* =====================================
+       FILA INFERIOR
+    ===================================== */
 
-    [-72, -55, -16, .60],
+    [-100, -40, -18, .52],
 
-    [-35, -88, -8, .65],
+    [-50, -68, -9, .56],
 
-    [0, -105, 0, .70],
+    [0, -78, 0, .59],
 
-    [38, -88, 8, .65],
+    [50, -68, 9, .56],
 
-    [82, -45, 18, .57],
-
-
-    [-82, -115, -16, .56],
-
-    [-43, -145, -9, .61],
-
-    [0, -165, 0, .68],
-
-    [43, -145, 9, .61],
-
-    [82, -112, 16, .56],
+    [100, -40, 18, .52],
 
 
-    [-42, -190, -7, .54],
+    /* =====================================
+       FILA MEDIA
+    ===================================== */
 
-    [0, -210, 0, .60],
+    [-78, -118, -14, .57],
 
-    [42, -190, 7, .54]
+    [-38, -140, -7, .61],
+
+    [0, -150, 0, .64],
+
+    [38, -140, 7, .61],
+
+    [78, -118, 14, .57],
+
+
+    /* =====================================
+       FILA SUPERIOR
+    ===================================== */
+
+    [-48, -185, -8, .56],
+
+    [0, -207, 0, .61],
+
+    [48, -185, 8, .56]
 
 ];
 
 
 
 /* =========================================
-   POSICIONES SEGÚN PANTALLA
+   POSICIONES SEGÚN DISPOSITIVO
 ========================================= */
 
 function getPositions() {
@@ -1206,10 +1135,11 @@ function getPositions() {
     ) {
 
         return mobilePositions;
+
     }
 
-
     return desktopPositions;
+
 }
 
 
@@ -1263,7 +1193,9 @@ function makeFlower(
     let petals = "";
 
 
-    /* 10 PÉTALOS */
+    /* =====================================
+       CREAR PÉTALOS
+    ===================================== */
 
     for (
         let j = 0;
@@ -1309,7 +1241,7 @@ function makeFlower(
 
 
     /* =====================================
-       FLORECER
+       APARECER FLOR
     ===================================== */
 
     setTimeout(
@@ -1325,7 +1257,7 @@ function makeFlower(
 
         500
         +
-        index * 260
+        index * 240
     );
 
 }
@@ -1378,7 +1310,7 @@ tenerte en mi vida. 🌻💛`;
 
 
                 /* =================================
-                   TERMINÓ EL MENSAJE
+                   TERMINÓ DE ESCRIBIR
                 ================================= */
 
                 if (
@@ -1438,7 +1370,7 @@ tenerte en mi vida. 🌻💛`;
 
 
 /* =========================================
-   CLICK
+   CLICK PRINCIPAL
 ========================================= */
 
 btn.addEventListener(
@@ -1447,7 +1379,9 @@ btn.addEventListener(
     () => {
 
 
-        /* EVITAR DOBLE CLICK */
+        /* =====================================
+           EVITAR DOBLE CLICK
+        ===================================== */
 
         btn.disabled = true;
 
@@ -1537,7 +1471,7 @@ btn.addEventListener(
 
             },
 
-            3600
+            3400
         );
 
 
@@ -1556,12 +1490,12 @@ btn.addEventListener(
 
             },
 
-            3900
+            3700
         );
 
 
         /* =====================================
-           TEXTO
+           MENSAJE
         ===================================== */
 
         setTimeout(
@@ -1571,9 +1505,8 @@ btn.addEventListener(
 
             },
 
-            4300
+            4100
         );
-
 
     }
 );
@@ -1581,12 +1514,12 @@ btn.addEventListener(
 
 
 /* =========================================
-   LUCES
+   LUCES DE FONDO
 ========================================= */
 
 for (
     let i = 0;
-    i < 25;
+    i < 24;
     i++
 ) {
 
