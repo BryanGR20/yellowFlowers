@@ -1,877 +1,977 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
 
-<meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1">
+    <title>Flores amarillas para ti 💛</title>
 
-<title>Un ramo para ti 💛</title>
+    <style>
 
-<style>
+        /* ==========================================
+           GENERAL
+        ========================================== */
 
-/* =========================
-   GENERAL
-========================= */
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
+        body {
+            min-height: 100vh;
 
-body {
-    min-height: 100vh;
-    overflow: hidden;
+            overflow: hidden;
 
-    font-family: Georgia, serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-    color: #fff;
+            color: #fff;
 
-    background:
-        radial-gradient(
-            circle at 70% 70%,
-            #183b2a 0,
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            #07131d,
-            #102d30 60%,
-            #0b1e19
-        );
-}
+            background:
+                radial-gradient(
+                    circle at 70% 75%,
+                    #183b2a 0%,
+                    transparent 32%
+                ),
+                linear-gradient(
+                    145deg,
+                    #07131d,
+                    #102d30 60%,
+                    #0b1e19
+                );
+        }
 
 
-/* =========================
-   ESCENA
-========================= */
+        /* ==========================================
+           ESCENA
+        ========================================== */
 
-.scene {
+        .scene {
+            position: relative;
 
-    min-height: 100vh;
+            width: 100%;
+            min-height: 100vh;
 
-    position: relative;
+            overflow: hidden;
 
-    display: flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    align-items: center;
+            padding: 24px;
+        }
 
-    justify-content: center;
 
-    padding: 24px;
+        /* ==========================================
+           PANTALLA INICIAL
+        ========================================== */
 
-}
+        .intro {
+            position: relative;
 
+            z-index: 50;
 
-/* =========================
-   PANTALLA INICIAL
-========================= */
+            text-align: center;
 
-.intro {
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
 
-    text-align: center;
 
-    z-index: 20;
+        .intro.hide {
+            opacity: 0;
 
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
+            transform:
+                scale(.9);
 
-}
+            pointer-events: none;
+        }
 
-.intro.hide {
 
-    opacity: 0;
+        .intro h1 {
+            margin:
+                0 0 12px;
 
-    transform:
-        scale(.9);
+            color:
+                #ffe36a;
 
-    pointer-events:
-        none;
+            font-size:
+                clamp(
+                    2rem,
+                    8vw,
+                    4rem
+                );
 
-}
+            text-shadow:
+                0 0 20px
+                rgba(
+                    255,
+                    227,
+                    106,
+                    .15
+                );
+        }
 
-.intro h1 {
 
-    color:
-        #ffe36a;
+        .intro p {
+            margin:
+                0 0 25px;
 
-    font-size:
-        clamp(
-            2rem,
-            9vw,
-            4rem
-        );
+            color:
+                #fff4c2;
 
-    margin:
-        0 0 12px;
+            font-size:
+                18px;
+        }
 
-}
 
-.intro p {
+        .intro button {
+            border: none;
 
-    color:
-        #fff4c2;
+            border-radius:
+                999px;
 
-    font-size:
-        18px;
+            padding:
+                15px 28px;
 
-    margin-bottom:
-        25px;
+            font-size:
+                17px;
 
-}
+            font-weight:
+                bold;
 
-.intro button {
+            background:
+                #f5ca36;
 
-    border:
-        none;
+            color:
+                #352600;
 
-    border-radius:
-        999px;
+            box-shadow:
+                0 0 25px
+                rgba(
+                    255,
+                    216,
+                    75,
+                    .35
+                );
 
-    padding:
-        15px 28px;
+            cursor:
+                pointer;
 
-    font-size:
-        17px;
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
 
-    font-weight:
-        bold;
 
-    background:
-        #f5ca36;
+        .intro button:hover {
+            transform:
+                scale(1.06);
 
-    color:
-        #352600;
+            box-shadow:
+                0 0 35px
+                rgba(
+                    255,
+                    216,
+                    75,
+                    .55
+                );
+        }
 
-    box-shadow:
-        0 0 25px
-        rgba(255, 216, 75, .35);
 
-    cursor:
-        pointer;
+        .intro button:active {
+            transform:
+                scale(.96);
+        }
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
 
-}
+        /* ==========================================
+           CARTA
+        ========================================== */
 
-.intro button:hover {
+        .letter {
+            position: absolute;
 
-    transform:
-        scale(1.06);
+            left: 6%;
+            top: 13%;
 
-    box-shadow:
-        0 0 35px
-        rgba(255, 216, 75, .55);
+            width:
+                min(
+                    39%,
+                    450px
+                );
 
-}
+            opacity: 0;
 
+            z-index: 30;
 
-/* =========================
-   CARTA / MENSAJE
-========================= */
+            color:
+                #fff6cf;
 
-.letter {
+            font-size:
+                clamp(
+                    1.05rem,
+                    2.1vw,
+                    1.5rem
+                );
 
-    position:
-        absolute;
+            line-height:
+                1.65;
 
-    left:
-        6%;
+            text-shadow:
+                0 2px 8px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .8
+                );
 
-    top:
-        14%;
+            transition:
+                opacity 1s ease;
+        }
 
-    width:
-        min(
-            38%,
-            440px
-        );
 
-    opacity:
-        0;
+        .letter.show {
+            opacity: 1;
+        }
 
-    z-index:
-        8;
 
-    font-size:
-        clamp(
-            1.05rem,
-            2.1vw,
-            1.5rem
-        );
+        #typed {
+            white-space:
+                pre-line;
+        }
 
-    line-height:
-        1.65;
 
-    color:
-        #fff6cf;
+        /* ==========================================
+           CURSOR
+        ========================================== */
 
-    text-shadow:
-        0 2px 8px
-        rgba(0, 0, 0, .8);
+        .cursor {
+            display:
+                inline-block;
 
-    transition:
-        opacity 1s ease;
+            width:
+                2px;
 
-}
+            height:
+                1em;
 
-.letter.show {
+            margin-left:
+                3px;
 
-    opacity:
-        1;
+            vertical-align:
+                -2px;
 
-}
+            background:
+                #ffe36a;
 
+            animation:
+                blink .7s infinite;
+        }
 
-/* =========================
-   TEXTO ESCRITO
-========================= */
 
-#typed {
+        @keyframes blink {
 
-    white-space:
-        pre-line;
+            50% {
+                opacity: 0;
+            }
 
-}
+        }
 
 
-/* =========================
-   CURSOR
-========================= */
+        /* ==========================================
+           FIRMA
+        ========================================== */
 
-.cursor {
+        .signature {
+            margin-top:
+                22px;
 
-    display:
-        inline-block;
+            opacity: 0;
 
-    width:
-        2px;
+            color:
+                #ffe36a;
 
-    height:
-        1em;
+            font-size:
+                1.05em;
 
-    margin-left:
-        3px;
+            font-weight:
+                bold;
 
-    vertical-align:
-        -2px;
+            font-style:
+                italic;
 
-    background:
-        #ffe36a;
+            transform:
+                translateY(10px);
 
-    animation:
-        blink .7s infinite;
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s ease;
 
-}
+            text-shadow:
+                0 2px 8px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .8
+                );
+        }
 
-@keyframes blink {
 
-    50% {
+        .signature.show {
+            opacity: 1;
 
-        opacity:
-            0;
+            transform:
+                translateY(0);
+        }
 
-    }
 
-}
+        /* ==========================================
+           RAMO
+        ========================================== */
 
+        .bouquet {
+            position: absolute;
 
-/* =========================
-   FIRMA
+            right: 5%;
+            bottom: 3%;
 
-   IMPORTANTE:
-   Ya NO usa position absolute.
+            width: 540px;
+            height: 650px;
 
-   De esta forma siempre aparecerá
-   debajo del mensaje.
-========================= */
+            opacity: 0;
 
-.signature {
+            transform-origin:
+                bottom center;
 
-    margin-top:
-        22px;
+            transition:
+                opacity .5s ease;
+        }
 
-    opacity:
-        0;
 
-    font-size:
-        1.05em;
+        .bouquet.show {
+            opacity: 1;
+        }
 
-    font-style:
-        italic;
 
-    font-weight:
-        bold;
+        /* ==========================================
+           FLORES
+        ========================================== */
 
-    color:
-        #ffe36a;
+        .flower {
+            position: absolute;
 
-    transform:
-        translateY(10px);
+            left: 50%;
+            bottom: 80px;
 
-    transition:
-        opacity 1.5s ease,
-        transform 1.5s ease;
+            width: 110px;
+            height: 110px;
 
-    text-shadow:
-        0 2px 8px
-        rgba(0, 0, 0, .8);
+            opacity: 0;
 
-}
+            transform-origin:
+                50% 170%;
 
-.signature.show {
+            transform:
+                translate(
+                    -50%,
+                    40px
+                )
+                rotate(
+                    var(--r)
+                )
+                scale(.15);
 
-    opacity:
-        1;
+            transition:
+                opacity .65s ease,
+                transform 1.1s
+                cubic-bezier(
+                    .2,
+                    .8,
+                    .2,
+                    1
+                );
+        }
 
-    transform:
-        translateY(0);
 
-}
+        .flower.grow {
+            opacity: 1;
 
+            transform:
+                translate(
+                    calc(
+                        -50%
+                        + var(--x)
+                    ),
+                    var(--y)
+                )
+                rotate(
+                    var(--r)
+                )
+                scale(
+                    var(--s)
+                );
+        }
 
-/* =========================
-   RAMO
-========================= */
 
-.bouquet {
+        /* ==========================================
+           TALLOS
+        ========================================== */
 
-    position:
-        absolute;
+        .stem {
+            position: absolute;
 
-    right:
-        5%;
+            width: 6px;
+            height: 250px;
 
-    bottom:
-        4%;
+            left: 52px;
+            top: 53px;
 
-    width:
-        min(
-            54vw,
-            540px
-        );
+            z-index: -1;
 
-    height:
-        min(
-            78vh,
-            650px
-        );
+            border-radius:
+                6px;
 
-    opacity:
-        0;
+            transform-origin:
+                top;
 
-    transition:
-        opacity .5s ease;
+            background:
+                linear-gradient(
+                    90deg,
+                    #164a2a,
+                    #4c9a4b,
+                    #153b25
+                );
+        }
 
-}
 
-.bouquet.show {
+        /* ==========================================
+           PÉTALOS
+        ========================================== */
 
-    opacity:
-        1;
+        .petal {
+            position: absolute;
 
-}
+            left: 41px;
+            top: 9px;
 
+            width: 28px;
+            height: 55px;
 
-/* =========================
-   FLORES
-========================= */
+            border-radius:
+                60%
+                60%
+                45%
+                45%;
 
-.flower {
+            transform-origin:
+                14px
+                46px;
 
-    position:
-        absolute;
+            background:
+                linear-gradient(
+                    #fff47d,
+                    #ffc928
+                );
 
-    left:
-        50%;
+            box-shadow:
+                0 0 8px
+                rgba(
+                    255,
+                    215,
+                    57,
+                    .35
+                );
+        }
 
-    bottom:
-        80px;
 
-    width:
-        110px;
+        /* ==========================================
+           CENTRO FLOR
+        ========================================== */
 
-    height:
-        110px;
+        .center {
+            position: absolute;
 
-    opacity:
-        0;
+            left: 35px;
+            top: 35px;
 
-    transform-origin:
-        50% 170%;
+            width: 40px;
+            height: 40px;
 
-    transform:
-        translate(
-            -50%,
-            40px
+            z-index: 3;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle at
+                    35% 30%,
+                    #9d7128,
+                    #4d2a0b 72%
+                );
+        }
+
+
+        /* ==========================================
+           PAPEL
+        ========================================== */
+
+        .wrap {
+            position: absolute;
+
+            left: 50%;
+            bottom: 18px;
+
+            width: 270px;
+            height: 165px;
+
+            z-index: 5;
+
+            opacity: 0;
+
+            transform:
+                translateX(-50%);
+
+            clip-path:
+                polygon(
+                    8% 0,
+                    92% 0,
+                    68% 100%,
+                    32% 100%
+                );
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0d9a7,
+                    #c89f61
+                );
+
+            transition:
+                opacity 1s ease;
+        }
+
+
+        .wrap.show {
+            opacity: .92;
+        }
+
+
+        /* ==========================================
+           CINTA
+        ========================================== */
+
+        .ribbon {
+            position: absolute;
+
+            left: 50%;
+            bottom: 82px;
+
+            width: 110px;
+            height: 24px;
+
+            z-index: 7;
+
+            opacity: 0;
+
+            border-radius:
+                50%;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                #d7a926;
+
+            transition:
+                opacity 1s ease;
+        }
+
+
+        .ribbon.show {
+            opacity: 1;
+        }
+
+
+        /* ==========================================
+           LUCES
+        ========================================== */
+
+        .spark {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            z-index: 1;
+
+            border-radius:
+                50%;
+
+            background:
+                #fff3a4;
+
+            opacity: .5;
+
+            pointer-events:
+                none;
+
+            animation:
+                float 5s
+                linear infinite;
+        }
+
+
+        @keyframes float {
+
+            from {
+                transform:
+                    translateY(0);
+            }
+
+            to {
+                transform:
+                    translateY(-90px);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* ==========================================
+           TABLET
+        ========================================== */
+
+        @media (
+            max-width: 900px
+        ) {
+
+            .letter {
+                left: 5%;
+                width: 44%;
+
+                font-size:
+                    1.05rem;
+            }
+
+
+            .bouquet {
+                right: -3%;
+
+                transform:
+                    scale(.82);
+
+                transform-origin:
+                    bottom right;
+            }
+
+        }
+
+
+        /* ==========================================
+           CELULAR
+        ========================================== */
+
+        @media (
+            max-width: 650px
+        ) {
+
+            body {
+                overflow: hidden;
+            }
+
+
+            .scene {
+                min-height:
+                    100vh;
+
+                overflow:
+                    hidden;
+
+                padding:
+                    14px;
+            }
+
+
+            /* ======================
+               INICIO
+            ====================== */
+
+            .intro {
+                margin-top:
+                    -60px;
+
+                padding:
+                    0 15px;
+            }
+
+
+            .intro h1 {
+                font-size:
+                    clamp(
+                        2rem,
+                        10vw,
+                        3rem
+                    );
+            }
+
+
+            .intro p {
+                font-size:
+                    16px;
+            }
+
+
+            /* ======================
+               CARTA
+            ====================== */
+
+            .letter {
+                left:
+                    6%;
+
+                top:
+                    5%;
+
+                width:
+                    88%;
+
+                font-size:
+                    clamp(
+                        .9rem,
+                        4vw,
+                        1.02rem
+                    );
+
+                line-height:
+                    1.4;
+            }
+
+
+            .signature {
+                margin-top:
+                    12px;
+
+                font-size:
+                    1rem;
+            }
+
+
+            /* ======================
+               RAMO
+            ====================== */
+
+            .bouquet {
+
+                /*
+                 * En celular dejamos de
+                 * posicionarlo desde la derecha.
+                 *
+                 * Lo centramos respecto a
+                 * toda la pantalla.
+                 */
+
+                left:
+                    50%;
+
+                right:
+                    auto;
+
+                bottom:
+                    -55px;
+
+                width:
+                    540px;
+
+                height:
+                    650px;
+
+                /*
+                 * Todo el ramo se reduce
+                 * proporcionalmente.
+                 */
+
+                transform:
+                    translateX(-50%)
+                    scale(.53);
+
+                transform-origin:
+                    bottom center;
+            }
+
+
+            .wrap {
+                width:
+                    280px;
+            }
+
+        }
+
+
+        /* ==========================================
+           CELULAR <= 430px
+        ========================================== */
+
+        @media (
+            max-width: 430px
+        ) {
+
+            .letter {
+                left:
+                    5%;
+
+                top:
+                    4%;
+
+                width:
+                    90%;
+
+                font-size:
+                    .92rem;
+
+                line-height:
+                    1.38;
+            }
+
+
+            .signature {
+                margin-top:
+                    10px;
+
+                font-size:
+                    .96rem;
+            }
+
+
+            .bouquet {
+                left:
+                    50%;
+
+                right:
+                    auto;
+
+                bottom:
+                    -65px;
+
+                width:
+                    540px;
+
+                height:
+                    650px;
+
+                transform:
+                    translateX(-50%)
+                    scale(.48);
+
+                transform-origin:
+                    bottom center;
+            }
+
+        }
+
+
+        /* ==========================================
+           CELULARES PEQUEÑOS <= 375px
+        ========================================== */
+
+        @media (
+            max-width: 375px
+        ) {
+
+            .letter {
+                top:
+                    3%;
+
+                font-size:
+                    .86rem;
+
+                line-height:
+                    1.34;
+            }
+
+
+            .signature {
+                margin-top:
+                    8px;
+
+                font-size:
+                    .92rem;
+            }
+
+
+            .bouquet {
+                bottom:
+                    -70px;
+
+                transform:
+                    translateX(-50%)
+                    scale(.43);
+            }
+
+        }
+
+
+        /* ==========================================
+           CELULARES BAJOS
+        ========================================== */
+
+        @media (
+            max-height: 700px
         )
-        rotate(
-            var(--r)
-        )
-        scale(.15);
+        and
+        (
+            max-width: 650px
+        ) {
 
-    transition:
-        opacity .65s ease,
-        transform 1.1s
-        cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
+            .letter {
+                top:
+                    3%;
 
-}
+                font-size:
+                    .84rem;
 
-.flower.grow {
+                line-height:
+                    1.3;
+            }
 
-    opacity:
-        1;
 
-    transform:
-        translate(
-            calc(
-                -50% + var(--x)
-            ),
-            var(--y)
-        )
-        rotate(
-            var(--r)
-        )
-        scale(
-            var(--s)
-        );
+            .signature {
+                margin-top:
+                    7px;
+            }
 
-}
 
+            .bouquet {
+                bottom:
+                    -90px;
 
-/* =========================
-   TALLOS
-========================= */
+                transform:
+                    translateX(-50%)
+                    scale(.42);
+            }
 
-.stem {
+        }
 
-    position:
-        absolute;
-
-    width:
-        6px;
-
-    height:
-        250px;
-
-    left:
-        52px;
-
-    top:
-        53px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #164a2a,
-            #4c9a4b,
-            #153b25
-        );
-
-    border-radius:
-        6px;
-
-    transform-origin:
-        top;
-
-    z-index:
-        -1;
-
-}
-
-
-/* =========================
-   PÉTALOS
-========================= */
-
-.petal {
-
-    position:
-        absolute;
-
-    left:
-        41px;
-
-    top:
-        9px;
-
-    width:
-        28px;
-
-    height:
-        55px;
-
-    border-radius:
-        60% 60% 45% 45%;
-
-    background:
-        linear-gradient(
-            #fff47d,
-            #ffc928
-        );
-
-    transform-origin:
-        14px 46px;
-
-    box-shadow:
-        0 0 8px
-        rgba(255, 215, 57, .35);
-
-}
-
-
-/* =========================
-   CENTRO DE LA FLOR
-========================= */
-
-.center {
-
-    position:
-        absolute;
-
-    left:
-        35px;
-
-    top:
-        35px;
-
-    width:
-        40px;
-
-    height:
-        40px;
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #9d7128,
-            #4d2a0b 72%
-        );
-
-    z-index:
-        3;
-
-}
-
-
-/* =========================
-   PAPEL DEL RAMO
-========================= */
-
-.wrap {
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    bottom:
-        18px;
-
-    transform:
-        translateX(-50%);
-
-    width:
-        260px;
-
-    height:
-        160px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f0d9a7,
-            #c89f61
-        );
-
-    clip-path:
-        polygon(
-            8% 0,
-            92% 0,
-            68% 100%,
-            32% 100%
-        );
-
-    opacity:
-        0;
-
-    transition:
-        opacity 1s ease;
-
-    z-index:
-        5;
-
-}
-
-.wrap.show {
-
-    opacity:
-        .92;
-
-}
-
-
-/* =========================
-   CINTA
-========================= */
-
-.ribbon {
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    bottom:
-        82px;
-
-    transform:
-        translateX(-50%);
-
-    width:
-        110px;
-
-    height:
-        24px;
-
-    border-radius:
-        50%;
-
-    background:
-        #d7a926;
-
-    opacity:
-        0;
-
-    transition:
-        opacity 1s ease;
-
-    z-index:
-        7;
-
-}
-
-.ribbon.show {
-
-    opacity:
-        1;
-
-}
-
-
-/* =========================
-   LUCES DE FONDO
-========================= */
-
-.spark {
-
-    position:
-        absolute;
-
-    width:
-        5px;
-
-    height:
-        5px;
-
-    border-radius:
-        50%;
-
-    background:
-        #fff3a4;
-
-    opacity:
-        .5;
-
-    pointer-events:
-        none;
-
-    animation:
-        float 5s linear infinite;
-
-}
-
-@keyframes float {
-
-    to {
-
-        transform:
-            translateY(-90px);
-
-        opacity:
-            0;
-
-    }
-
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 650px) {
-
-    body {
-
-        overflow:
-            hidden;
-
-    }
-
-
-    .scene {
-
-        padding:
-            16px;
-
-    }
-
-
-    /* TEXTO ARRIBA */
-
-    .letter {
-
-        left:
-            7%;
-
-        top:
-            6%;
-
-        width:
-            86%;
-
-        font-size:
-            clamp(
-                .95rem,
-                4.4vw,
-                1.12rem
-            );
-
-        line-height:
-            1.48;
-
-    }
-
-
-    /* Firma ahora fluye debajo
-       del texto automáticamente */
-
-    .signature {
-
-        margin-top:
-            16px;
-
-        font-size:
-            1.05rem;
-
-    }
-
-
-    /* RAMO ABAJO */
-
-    .bouquet {
-
-        right:
-            -5%;
-
-        bottom:
-            -4%;
-
-        width:
-            100%;
-
-        height:
-            58vh;
-
-        transform:
-            scale(.72);
-
-        transform-origin:
-            bottom right;
-
-    }
-
-
-    .intro {
-
-        margin-top:
-            -70px;
-
-    }
-
-}
-
-
-/* =========================
-   CELULARES PEQUEÑOS
-========================= */
-
-@media (max-width: 390px) {
-
-    .letter {
-
-        top:
-            4%;
-
-        font-size:
-            .94rem;
-
-        line-height:
-            1.4;
-
-    }
-
-
-    .signature {
-
-        margin-top:
-            12px;
-
-        font-size:
-            .98rem;
-
-    }
-
-
-    .bouquet {
-
-        transform:
-            scale(.65);
-
-        right:
-            -8%;
-
-        bottom:
-            -5%;
-
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -879,40 +979,46 @@ body {
 <body>
 
 
-<!-- =========================
+<!-- ==========================================
      MÚSICA
-========================= -->
+========================================== -->
 
 <audio
     id="backgroundMusic"
-    loop>
+    loop
+>
 
     <source
         src="audio.mp3"
-        type="audio/mpeg">
+        type="audio/mpeg"
+    >
 
     <source
         src="audio.mp4"
-        type="audio/mp4">
+        type="audio/mp4"
+    >
 
 </audio>
 
 
 
-<!-- =========================
+<!-- ==========================================
      ESCENA
-========================= -->
+========================================== -->
 
-<main class="scene">
+<main
+    class="scene"
+>
 
 
-    <!-- =====================
-         INICIO
-    ====================== -->
+    <!-- ======================================
+         PANTALLA INICIAL
+    ======================================= -->
 
     <section
         class="intro"
-        id="intro">
+        id="intro"
+    >
 
         <h1>
             Tengo algo para ti 💛
@@ -924,7 +1030,8 @@ body {
 
         <button
             id="open"
-            type="button">
+            type="button"
+        >
 
             Toca aquí 🌻
 
@@ -934,33 +1041,36 @@ body {
 
 
 
-    <!-- =====================
-         MENSAJE + FIRMA
-    ====================== -->
+    <!-- ======================================
+         MENSAJE
+    ======================================= -->
 
     <div
         class="letter"
-        id="letter">
+        id="letter"
+    >
 
         <span
-            id="typed">
-        </span>
+            id="typed"
+        ></span>
 
         <span
             class="cursor"
-            id="cursor">
-        </span>
+            id="cursor"
+        ></span>
 
 
         <!--
-        IMPORTANTE:
-        La firma está DENTRO
-        del mismo contenedor.
+            La firma está dentro de letter.
+
+            Así nunca se cruza con
+            el texto de arriba.
         -->
 
         <div
             class="signature"
-            id="signature">
+            id="signature"
+        >
 
             Con amor, Bryan ❤️
 
@@ -970,23 +1080,25 @@ body {
 
 
 
-    <!-- =====================
+    <!-- ======================================
          RAMO
-    ====================== -->
+    ======================================= -->
 
     <div
         class="bouquet"
-        id="bouquet">
+        id="bouquet"
+    >
 
         <div
             class="wrap"
-            id="wrap">
-        </div>
+            id="wrap"
+        ></div>
+
 
         <div
             class="ribbon"
-            id="ribbon">
-        </div>
+            id="ribbon"
+        ></div>
 
     </div>
 
@@ -997,54 +1109,63 @@ body {
 
 <script>
 
-/* =========================
+/* ==========================================
    ELEMENTOS
-========================= */
+========================================== */
 
 const intro =
     document.getElementById(
         "intro"
     );
 
+
 const bouquet =
     document.getElementById(
         "bouquet"
     );
+
 
 const letter =
     document.getElementById(
         "letter"
     );
 
+
 const typed =
     document.getElementById(
         "typed"
     );
+
 
 const wrap =
     document.getElementById(
         "wrap"
     );
 
+
 const ribbon =
     document.getElementById(
         "ribbon"
     );
+
 
 const btn =
     document.getElementById(
         "open"
     );
 
+
 const music =
     document.getElementById(
         "backgroundMusic"
     );
 
+
 const signature =
     document.getElementById(
         "signature"
     );
+
 
 const cursor =
     document.getElementById(
@@ -1052,9 +1173,10 @@ const cursor =
     );
 
 
-/* =========================
+
+/* ==========================================
    POSICIONES DEL RAMO
-========================= */
+========================================== */
 
 const positions = [
 
@@ -1089,16 +1211,17 @@ const positions = [
 ];
 
 
-/* =========================
-   CREAR FLOR
-========================= */
+
+/* ==========================================
+   CREAR UNA FLOR
+========================================== */
 
 function makeFlower(
     x,
     y,
-    r,
-    s,
-    i
+    rotation,
+    scale,
+    index
 ) {
 
     const flower =
@@ -1116,19 +1239,22 @@ function makeFlower(
         x + "px"
     );
 
+
     flower.style.setProperty(
         "--y",
         y + "px"
     );
 
+
     flower.style.setProperty(
         "--r",
-        r + "deg"
+        rotation + "deg"
     );
+
 
     flower.style.setProperty(
         "--s",
-        s
+        scale
     );
 
 
@@ -1136,7 +1262,9 @@ function makeFlower(
         "";
 
 
-    /* 10 pétalos */
+    /* ==============================
+       CREAR 10 PÉTALOS
+    ============================== */
 
     for (
         let j = 0;
@@ -1150,11 +1278,11 @@ function makeFlower(
                 class="petal"
 
                 style="
-                transform:
-                rotate(${j * 36}deg)
-                translateY(-29px);
-                ">
-            </i>
+                    transform:
+                    rotate(${j * 36}deg)
+                    translateY(-29px);
+                "
+            ></i>
 
         `;
 
@@ -1164,14 +1292,16 @@ function makeFlower(
     flower.innerHTML = `
 
         <div
-            class="stem">
-        </div>
+            class="stem"
+        ></div>
+
 
         ${petals}
 
+
         <div
-            class="center">
-        </div>
+            class="center"
+        ></div>
 
     `;
 
@@ -1181,38 +1311,41 @@ function makeFlower(
     );
 
 
-    /* =====================
-       FLORECER
-       UNA POR UNA
-    ====================== */
+    /* ==============================
+       HACER CRECER LA FLOR
+    ============================== */
 
     setTimeout(
         () => {
 
-            flower.classList.add(
-                "grow"
-            );
+            flower
+                .classList
+                .add(
+                    "grow"
+                );
 
         },
 
-        500 +
-        i * 260
+        500
+        +
+        index * 260
 
     );
 
 }
 
 
-/* =========================
+
+/* ==========================================
    ESCRIBIR MENSAJE
-========================= */
+========================================== */
 
 function typeMessage() {
 
 
-    const msg =
+    const message =
 
-`Para ti, mi amore 💛
+`Para ti, mi amor 💛
 
 No quería dejar pasar este día
 sin regalarte flores amarillas.
@@ -1224,13 +1357,15 @@ y lo bonito que es
 tenerte en mi vida. 🌻💛`;
 
 
-    let i =
+    let index =
         0;
 
 
-    letter.classList.add(
-        "show"
-    );
+    letter
+        .classList
+        .add(
+            "show"
+        );
 
 
     const typing =
@@ -1238,25 +1373,22 @@ tenerte en mi vida. 🌻💛`;
             () => {
 
 
-                /*
-                Agregamos una letra
-                en cada intervalo.
-                */
-
                 typed.textContent +=
-                    msg.charAt(i);
+                    message.charAt(
+                        index
+                    );
 
 
-                i++;
+                index++;
 
 
-                /* =================
-                   TERMINÓ EL TEXTO
-                ================= */
+                /* =========================
+                   TERMINÓ DE ESCRIBIR
+                ========================= */
 
                 if (
-                    i >=
-                    msg.length
+                    index >=
+                    message.length
                 ) {
 
 
@@ -1265,9 +1397,9 @@ tenerte en mi vida. 🌻💛`;
                     );
 
 
-                    /* =================
+                    /* =====================
                        QUITAR CURSOR
-                    ================= */
+                    ====================== */
 
                     setTimeout(
                         () => {
@@ -1277,26 +1409,28 @@ tenerte en mi vida. 🌻💛`;
 
                         },
 
-                        400
+                        350
+
                     );
 
 
-                    /* =================
+                    /* =====================
                        MOSTRAR FIRMA
-                    ================= */
+                    ====================== */
 
                     setTimeout(
                         () => {
 
                             signature
-                            .classList
-                            .add(
-                                "show"
-                            );
+                                .classList
+                                .add(
+                                    "show"
+                                );
 
                         },
 
-                        900
+                        800
+
                     );
 
                 }
@@ -1310,9 +1444,10 @@ tenerte en mi vida. 🌻💛`;
 }
 
 
-/* =========================
+
+/* ==========================================
    CLICK PRINCIPAL
-========================= */
+========================================== */
 
 btn.addEventListener(
     "click",
@@ -1320,113 +1455,121 @@ btn.addEventListener(
     () => {
 
 
-        /* =====================
-           EVITAR DOBLE CLICK
-        ====================== */
+        /*
+         * Evitamos que pueda presionar
+         * varias veces.
+         */
 
         btn.disabled =
             true;
 
 
-        /* =====================
+        /* ==============================
            INICIAR MÚSICA
-        ====================== */
+        ============================== */
 
         music.volume =
             0.5;
 
 
-        music.play()
-        .catch(
-            error => {
+        music
+            .play()
+            .catch(
+                error => {
 
-                console.log(
-                    "No se pudo iniciar la música:",
-                    error
-                );
+                    console.log(
+                        "No se pudo iniciar la música:",
+                        error
+                    );
 
-            }
-        );
+                }
+            );
 
 
-        /* =====================
+        /* ==============================
            OCULTAR INTRO
-        ====================== */
+        ============================== */
 
-        intro.classList.add(
-            "hide"
-        );
-
-
-        /* =====================
-           MOSTRAR RAMO
-        ====================== */
-
-        bouquet.classList.add(
-            "show"
-        );
+        intro
+            .classList
+            .add(
+                "hide"
+            );
 
 
-        /* =====================
+        /* ==============================
+           MOSTRAR CONTENEDOR DEL RAMO
+        ============================== */
+
+        bouquet
+            .classList
+            .add(
+                "show"
+            );
+
+
+        /* ==============================
            CREAR FLORES
-        ====================== */
+        ============================== */
 
         positions.forEach(
             (
                 position,
-                i
+                index
             ) => {
 
                 makeFlower(
                     ...position,
-                    i
+                    index
                 );
 
             }
         );
 
 
-        /* =====================
-           PAPEL
-        ====================== */
+        /* ==============================
+           MOSTRAR PAPEL
+        ============================== */
 
         setTimeout(
             () => {
 
                 wrap
-                .classList
-                .add(
-                    "show"
-                );
+                    .classList
+                    .add(
+                        "show"
+                    );
 
             },
 
             3600
+
         );
 
 
-        /* =====================
-           CINTA
-        ====================== */
+        /* ==============================
+           MOSTRAR CINTA
+        ============================== */
 
         setTimeout(
             () => {
 
                 ribbon
-                .classList
-                .add(
-                    "show"
-                );
+                    .classList
+                    .add(
+                        "show"
+                    );
 
             },
 
             3900
+
         );
 
 
-        /* =====================
-           MENSAJE
-        ====================== */
+        /* ==============================
+           ESCRIBIR CARTA
+        ============================== */
 
         setTimeout(
             () => {
@@ -1436,6 +1579,7 @@ btn.addEventListener(
             },
 
             4300
+
         );
 
 
@@ -1443,9 +1587,10 @@ btn.addEventListener(
 );
 
 
-/* =========================
-   LUCES DEL FONDO
-========================= */
+
+/* ==========================================
+   CREAR LUCES DE FONDO
+========================================== */
 
 for (
     let i = 0;
@@ -1453,10 +1598,9 @@ for (
     i++
 ) {
 
-
     const spark =
         document.createElement(
-            "b"
+            "span"
         );
 
 
@@ -1474,7 +1618,7 @@ for (
 
     spark.style.top =
         (
-            30
+            25
             +
             Math.random()
             * 70
@@ -1486,6 +1630,16 @@ for (
         (
             -Math.random()
             * 5
+        )
+        + "s";
+
+
+    spark.style.animationDuration =
+        (
+            4
+            +
+            Math.random()
+            * 4
         )
         + "s";
 
